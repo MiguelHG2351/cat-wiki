@@ -3,28 +3,25 @@ import Head from "next/head"
 import Image from "next/image"
 import Form from "components/Home/Form"
 
-// export async function getStaticProps() {
-//   const queryClient = new QueryClient()
+export async function getStaticProps() {
+  const queryClient = new QueryClient()
 
-//   // await queryClient.prefetchQuery('breeds', async () => {
-// 	console.log(process.env.CAT_API_TOKEN)
-// 	const breeds = await fetch('https://api.thecatapi.com/v1/images/search?format=json', {
-// 		headers: {
-// 			'x-api-key': process.env.CAT_API_TOKEN || ''
-// 		}
-// 	})
-// 	const data = await breeds.json()
+  await queryClient.prefetchQuery('posts', () => 
+    fetch('https://api.thecatapi.com/v1/breeds').then(res => res.json())
+  )
 
-// 	return {
-// 		props: {
-// 			name: data,
-//       token: process.env.CAT_API_TOKEN
-// 		}
-// 	}
-// }
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  }
+}
 
-export default function Home({ name, token }) {
-  console.log(token)
+export default function Home() {
+  const { data } = useQuery('posts', () =>
+    fetch('https://api.thecatapi.com/v1/breeds').then(res => res.json())
+  )
+  console.log(data)
   return (
     <>
       <Head>
@@ -34,7 +31,7 @@ export default function Home({ name, token }) {
       <div className="left w-1/2">
         <Image className="h-[35px] w-16" src="/icons/CatwikiLogo2.svg" width={64} height={35} alt="Otra imagen del gato" />
         <p className="text-white text-xs mb-2">Get to know more about your cat breed</p>
-        <Form />
+        <Form data={data} />
       </div>
      </section>
     </>

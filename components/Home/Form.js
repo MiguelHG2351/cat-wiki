@@ -3,15 +3,18 @@ import React from 'react'
 
 export default function Form({ name }) {
 	const mobileInputRef = useRef(null)
+	const desktopInputRef = useRef(null)
 	console.log(name)
 	const [menu, setMenu] = useState(false)
 
 	function toggleMenuMobile() {
 		if(window.innerWidth < 768) {
-			// if user agent is mobile, toggle menu
-			if (menu) {
-				console.log(mobileInputRef.current)
-				mobileInputRef.current.focus()
+			if (!menu) {
+				console.log('blur')
+				desktopInputRef.current.blur()
+				setTimeout(() => {
+					mobileInputRef.current.focus()
+				}, 200)
 			}
 			setMenu(!menu)
 		}
@@ -29,7 +32,7 @@ export default function Form({ name }) {
 	return (
 		<>
 			<form>
-				<input onClick={ toggleMenuMobile } type="text" className="inline-block w-[12ch] rounded-3xl py-2 px-3 outline-none placeholder:text-black" placeholder="Search" />
+				<input ref={desktopInputRef} onClick={ toggleMenuMobile } type="text" className="inline-block w-[12ch] rounded-3xl py-2 px-3 outline-none placeholder:text-black" placeholder="Search" />
 			</form>
 			<div style={{display: menu ? 'block' : 'none'}} className="modal-mobile fixed top-0 left-0 right-0 bottom-0 py-2 px-4 bg-white">
 				<div className="close-menu flex justify-end">
@@ -40,7 +43,8 @@ export default function Form({ name }) {
 				<div className="input-search-modal mb-7">
 					<input ref={ mobileInputRef } className="border-black border w-full mt-7 rounded-lg py-2 px-3 placeholder:text-black" type="text" name="search-modal" placeholder="Search for a cat" />
 				</div>
-				<h2>Results</h2>
+				<h2 className='text-lg font-bold'>Results</h2>
+				
 			</div>
 		</>
 	)
