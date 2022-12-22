@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@next/font': ^13.0.7
   autoprefixer: ^10.4.13
   next: ^13.0.7
   postcss: ^8.4.20
@@ -11,6 +12,7 @@ specifiers:
   tailwindcss: ^3.2.4
 
 dependencies:
+  '@next/font': 13.0.7
   next: 13.0.7_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -33,6 +35,10 @@ packages:
 
   /@next/env/13.0.7:
     resolution: {integrity: sha512-ZBclBRB7DbkSswXgbJ+muF5RxfgmAuQKAWL8tcm86aZmoiL1ZainxQK0hMcMYdh+IYG8UObAKV2wKB5O+6P4ng==}
+    dev: false
+
+  /@next/font/13.0.7:
+    resolution: {integrity: sha512-39SzuoMI6jbrIzPs3KtXdKX03OrVp6Y7kRHcoVmOg69spiBzruPJ5x5DQSfN+OXqznbvVBNZBXnmdnSqs3qXiA==}
     dev: false
 
   /@next/swc-android-arm-eabi/13.0.7:

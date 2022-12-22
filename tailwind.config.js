@@ -12,7 +12,8 @@ module.exports = {
         // },
         // secondary: {
         // },
-        tertiary: 'rgba(151, 151, 151, 0.1);'
+        secondary: '#E3E1DC',
+        accent: 'rgba(151, 151, 151, 0.1);',
       }
     },
   },
