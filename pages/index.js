@@ -1,5 +1,6 @@
 import { dehydrate, QueryClient } from "react-query"
-import useCatData from "hooks/useCatData"
+import { fetchCats, useCatData } from 'hooks/useCatQuery'
+// import useCatData from "hooks/useCatData"
 import Head from "next/head"
 import Image from "next/image"
 import Form from "components/Home/Form"
@@ -7,9 +8,10 @@ import Form from "components/Home/Form"
 export async function getStaticProps() {
   const queryClient = new QueryClient()
 
-  await queryClient.prefetchQuery(['posts'], () => 
-    fetch('https://api.thecatapi.com/v1/breeds').then(res => res.json())
-  )
+  await queryClient.prefetchQuery({
+    queryKey: ['posts', 10],
+    queryFn: () => fetchCats(10)
+  })
 
   return {
     props: {
@@ -20,8 +22,7 @@ export async function getStaticProps() {
 
 export default function Home() {
   // const data = []
-  const { data, defaultData } = useCatData()
-  console.log(defaultData())
+  const { data,  } = useCatData()
   return (
     <>
       <Head>

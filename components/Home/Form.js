@@ -8,7 +8,7 @@ export default function Form({ data }) {
 	const mobileInputRef = useRef(null)
 	const desktopInputRef = useRef(null)
 	const [menu, setMenu] = useState(false)
-	const [search, setSearch] = useState(data.slice(0, 5))
+	const [search, setSearch] = useState([])
 
 	function toggleMenuMobile() {
 		if (window.innerWidth < 768) {
@@ -42,6 +42,12 @@ export default function Form({ data }) {
 		return () => window.removeEventListener('resize', handleResize)
 	}, [])
 
+	useEffect(() => {
+		if(data !== undefined) {
+			setSearch(data.slice(0, 5))
+		}
+	}, [data])
+
 	return (
 		<>
 			<form>
@@ -51,7 +57,7 @@ export default function Form({ data }) {
 					</div>
 					<input ref={ desktopInputRef } onClick={ toggleMenuMobile } type="text" className="inline-block w-[16ch] rounded-3xl py-2 px-3 outline-none placeholder:text-black" placeholder="Search" />
 				</div>
-				<div style={ { display: menu ? 'block' : 'none' } } className="modal-mobile fixed top-0 left-0 right-0 bottom-0 py-2 px-4 bg-white">
+				<div style={ { display: menu ? 'block' : 'none' } } className="modal-mobile fixed z-20 top-0 left-0 right-0 bottom-0 py-2 px-4 bg-white">
 					<div className="close-menu flex justify-end">
 						<button onClick={ toggleMenuMobile } type="button" className='bg-accent rounded-lg p-2'>
 							<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox='0 0 48 48'><path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z" /></svg>
