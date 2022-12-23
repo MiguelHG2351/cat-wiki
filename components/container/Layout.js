@@ -1,6 +1,6 @@
-import Header from "./Header"
+import Header from './Header'
 
-export default function Layout({ children, className }) {
+export default function Layout ({ children, className }) {
   return (
     <main className={className}>
         <Header />

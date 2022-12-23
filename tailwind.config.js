@@ -1,19 +1,19 @@
-const rxPlugin = require('./apps/tailwindcss/rxSupport');
+const rxPlugin = require('./apps/tailwindcss/rxSupport')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     extend: {
       colors: {
         primary: '#291507',
         secondary: '#E3E1DC',
-        accent: 'rgba(151, 151, 151, 0.1);',
+        accent: 'rgba(151, 151, 151, 0.1);'
       }
-    },
+    }
   },
-  plugins: [rxPlugin],
+  plugins: [rxPlugin]
 }

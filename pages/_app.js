@@ -6,9 +6,9 @@ import Layout from 'components/container/Layout'
 
 const inter = Montserrat({ subsets: ['latin'] })
 
-export default function MyApp({ Component, pageProps }) {
-  const [ queryClient ] = useState(() => new QueryClient())
-  
+export default function MyApp ({ Component, pageProps }) {
+  const [queryClient] = useState(() => new QueryClient())
+
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>

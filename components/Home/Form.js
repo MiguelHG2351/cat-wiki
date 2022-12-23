@@ -1,54 +1,53 @@
 import Link from 'next/link'
-import { useState, useRef, useEffect } from 'react'
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
-//#region Styles
+// #region Styles
 
-export default function Form({ data }) {
-	const mobileInputRef = useRef(null)
-	const desktopInputRef = useRef(null)
-	const [menu, setMenu] = useState(false)
-	const [search, setSearch] = useState([])
+export default function Form ({ data }) {
+  const mobileInputRef = useRef(null)
+  const desktopInputRef = useRef(null)
+  const [menu, setMenu] = useState(false)
+  const [search, setSearch] = useState([])
 
-	function toggleMenuMobile() {
-		if (window.innerWidth < 768) {
-			if (!menu) {
-				console.log('blur')
-				desktopInputRef.current.blur()
-				setTimeout(() => {
-					mobileInputRef.current.focus()
-				}, 200)
-			}
-			setMenu(!menu)
-		}
-	}
+  function toggleMenuMobile () {
+    if (window.innerWidth < 768) {
+      if (!menu) {
+        console.log('blur')
+        desktopInputRef.current.blur()
+        setTimeout(() => {
+          mobileInputRef.current.focus()
+        }, 200)
+      }
+      setMenu(!menu)
+    }
+  }
 
-	function onInputHandler(e) {
-		const value = e.target.value.toLowerCase()
-		const filtered = data.filter((item) => {
-			return item.name.toLowerCase().includes(value)
-		})
-		setSearch(filtered.slice(0, 5))
-		console.log()
-	}
+  function onInputHandler (e) {
+    const value = e.target.value.toLowerCase()
+    const filtered = data.filter((item) => {
+      return item.name.toLowerCase().includes(value)
+    })
+    setSearch(filtered.slice(0, 5))
+    console.log()
+  }
 
-	useEffect(() => {
-		function handleResize() {
-			if (window.innerWidth > 768) {
-				setMenu(false)
-			}
-		}
-		window.addEventListener('resize', handleResize)
-		return () => window.removeEventListener('resize', handleResize)
-	}, [])
+  useEffect(() => {
+    function handleResize () {
+      if (window.innerWidth > 768) {
+        setMenu(false)
+      }
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
-	useEffect(() => {
-		if(data !== undefined) {
-			setSearch(data.slice(0, 5))
-		}
-	}, [data])
+  useEffect(() => {
+    if (data !== undefined) {
+      setSearch(data.slice(0, 5))
+    }
+  }, [data])
 
-	return (
+  return (
 		<>
 			<form>
 				<div className="relative inline-block">
@@ -80,7 +79,7 @@ export default function Form({ data }) {
 				</div>
 			</form>
 		</>
-	)
+  )
 }
 
-//#endregion
+// #endregion
