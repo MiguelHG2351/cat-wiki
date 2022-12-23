@@ -1,26 +1,19 @@
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 
-const fetchCats = async (limit = 10) => {
-    const response = await fetch('https://api.thecatapi.com/v1/breeds')
-    const data = await response.json()
-    return data.slice(0, limit)
-}
-
-const useCatData = (limit) => {
-    const { data, isLoading } = useQuery({
-        queryKey: ['posts', limit],
-        queryFn: () => fetchCats(limit)
-    })
-    console.log(data, isLoading)
-
-    // function defaultData() {
-    //     return [data[10], data[53], data[45], data[55]]
-    // }
-
-    return {
-        data,
-        // defaultData
+const fetchCats = async () => {
+    let url = 'http://localhost:3000';
+    if(process.env) {
+        let isDev = process.env.NODE_ENV !== 'production';
+        url = isDev ? 'http://localhost:3000' : 'https://cat-wiki-devchallenge.vercel.app';
     }
+    const response = await fetch(url + '/api/cats')
+    const data = await response.json()
+    return data
 }
+
+const useCatData = () => useQuery({
+    queryKey: ['most-searched'],
+    queryFn: () => fetchCats()
+})
 
 export { useCatData, fetchCats }

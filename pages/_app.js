@@ -1,6 +1,6 @@
 import { Montserrat } from '@next/font/google'
 import { useState } from 'react'
-import { QueryClientProvider, Hydrate, QueryClient } from 'react-query'
+import { QueryClientProvider, Hydrate, QueryClient } from '@tanstack/react-query'
 import 'apps/style.css'
 import Layout from 'components/container/Layout'
 

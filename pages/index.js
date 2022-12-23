@@ -1,9 +1,9 @@
-import { dehydrate, QueryClient } from "react-query"
+import { dehydrate, QueryClient } from "@tanstack/react-query"
 import { fetchCats, useCatData } from 'hooks/useCatQuery'
-// import useCatData from "hooks/useCatData"
 import Head from "next/head"
 import Image from "next/image"
 import Form from "components/Home/Form"
+import MostSearchList from "components/MostSearchedList"
 
 export async function getStaticProps() {
   const queryClient = new QueryClient()
@@ -22,7 +22,7 @@ export async function getStaticProps() {
 
 export default function Home() {
   // const data = []
-  const { data,  } = useCatData()
+  const { data } = useCatData()
   return (
     <>
       <Head>
@@ -40,12 +40,8 @@ export default function Home() {
         <h2 className="font-medium text-xs">Most Searched Breeds</h2>
         <div className="bg-black absolute bottom-0 left-0 w-10 h-[3px] rounded-sm"></div>
       </div>
-      <h3 className="font-bold text-lg mt-4">66+ Breeds For you to discover</h3>
-      <section className="cat-most-search grid grid-col-2">
-        <article>
-          
-        </article>
-      </section>
+      <h3 className="font-bold text-lg my-4">66+ Breeds For you to discover</h3>
+      <MostSearchList />
      </section>
     </>
   )
