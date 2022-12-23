@@ -6,7 +6,9 @@
   "scripts": {
     "start": "next start",
     "dev": "next dev",
-    "build": "next build"
+    "build": "next build",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "keywords": [],
   "author": "",
