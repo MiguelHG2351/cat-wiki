@@ -22,7 +22,7 @@ const CatItem = ({ name, url }) => {
     return (
         <article>
             <Image className='w-auto rounded-xl h-auto object-cover aspect-square' src={ url } width={ 278 } height={ 278 } alt="" />
-            <a href="#" className='text-xs'>{ name }</a>
+            <a href="#" className='text-xs max-w-full whitespace-nowrap overflow-hidden text-ellipsis'>{ name }</a>
         </article>
     )
 
