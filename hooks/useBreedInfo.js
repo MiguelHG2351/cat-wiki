@@ -7,9 +7,10 @@ const fetchBreedInfo = async (ids) => {
     return data
   }
 
-const useBreedInfoData = (ids) => useQuery({
+const useBreedInfo = (ids) => useQuery({
   queryKey: ['breedInfo'],
-  queryFn: () => fetchBreedInfo(ids)
+  queryFn: () => fetchBreedInfo(ids),
+  enabled: !!ids,
 })
 
-export { useBreedInfoData, fetchBreedInfo }
+export { useBreedInfo, fetchBreedInfo }
