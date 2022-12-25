@@ -68,7 +68,7 @@ export default function Form ({ data }) {
 							<ul>
 								{ search.map(cat => (
 									<li key={ cat.reference_image_id + cat.country_code }>
-										<Link className='block p-2' href="/">
+										<Link className='block p-2' href={`/breed/${cat.id}`}>
 											{ cat.name }
 										</Link>
 									</li>

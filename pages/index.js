@@ -57,11 +57,11 @@ export default function Home () {
           </div>
           <div className="image-of-cats grid grid-cols-2 gap-x-4 mt-14">
             <div className="left">
-              <Image className="w-full object-cover mb-5" src="/images/image 2.png" width={ 411 } height={ 252 } />
-              <Image className="w-full object-cover" src="/images/image 1.png" width={ 294 } height={ 440 } />
+              <Image className="w-full object-cover mb-5" src="/images/image 2.png" width={ 411 } height={ 252 } alt="Una imagen de un gatito durmiendo" />
+              <Image className="w-full object-cover" src="/images/image 1.png" width={ 294 } height={ 440 } alt="Una imagen de un gatito con un humano"/>
             </div>
             <div className="right">
-              <Image className="w-full object-cover" src="/images/image 3.png" width={ 359 } height={ 580 } />
+              <Image className="w-full object-cover" src="/images/image 3.png" width={ 359 } height={ 580 } alt="Una imagen de un gatito" />
             </div>
           </div>
         </section>

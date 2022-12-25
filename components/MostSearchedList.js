@@ -22,13 +22,13 @@ const CatItem = ({ name, url }) => {
 	return (
 		<article>
 			<Image className='w-auto rounded-xl h-auto object-cover aspect-square' src={ url } width={ 278 } height={ 278 } alt="" />
-			<a href="#" className='text-xs max-w-full whitespace-nowrap overflow-hidden text-ellipsis'>{ name }</a>
+			<a href="#" className='text-xs inline-block max-w-full whitespace-nowrap overflow-hidden text-ellipsis'>{ name }</a>
 		</article>
 	)
 }
 
 const Skeleton = ({ name }) => (
-	<article>
+	<article className='animate-pulse'>
 		<svg className='aspect-square w-full' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 278 278" fill="none">
 			<rect className='rx-xl w-full h-full' fill="#6C7D89" />
 		</svg>
