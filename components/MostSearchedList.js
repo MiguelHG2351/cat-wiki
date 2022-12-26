@@ -17,8 +17,6 @@ export default function MostSearchList() {
 }
 
 const CatItem = ({ name, url }) => {
-	console.log(url)
-
 	return (
 		<article>
 			<Image className='w-auto rounded-xl h-auto object-cover aspect-square' src={ url } width={ 278 } height={ 278 } alt="" />

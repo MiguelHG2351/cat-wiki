@@ -8,6 +8,7 @@ const inter = Montserrat({ subsets: ['latin'] })
 
 export default function MyApp ({ Component, pageProps }) {
   const [queryClient] = useState(() => new QueryClient())
+  queryClient.invalidateQueries({ queryKey: ['breedInfo'], exact: true })
 
   return (
     <QueryClientProvider client={queryClient}>

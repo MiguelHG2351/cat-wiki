@@ -3,9 +3,10 @@ import CatInfo_ from './CatInfo'
 import SkeletonCatInfo from './Skeleton'
 
 export default function CatInfo({ ids }) {
-    const { data, isLoading } = useBreedInfo(ids)
+    const { data, status} = useBreedInfo(ids)
+    console.log(status)
 
     return (
-        isLoading ? <SkeletonCatInfo /> : <CatInfo_ data={data} />
+        !(status === 'success') ? <SkeletonCatInfo /> : <CatInfo_ data={data} />
     )
 }
