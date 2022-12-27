@@ -13,7 +13,8 @@ const fetchCats = async () => {
 
 const useCatData = () => useQuery({
   queryKey: ['most-searched'],
-  queryFn: () => fetchCats()
+  queryFn: () => fetchCats(),
+  staleTime: 30000,
 })
 
 export { useCatData, fetchCats }

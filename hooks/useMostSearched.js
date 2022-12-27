@@ -9,6 +9,7 @@ const fetchMoreSearched = async () => {
 const useMostSearched = () => useQuery({
   queryKey: ['posts'],
   queryFn: () => fetchMoreSearched(),
+  staleTime: 30000,
   placeholderData: [
     {
       id: 'load1',
