@@ -28,10 +28,11 @@ export default function Home () {
       <Head>
         <title>Home de catwiki</title>
       </Head>
-      <section className="hero py-6 px-7 rounded-t-3xl bg-[url('/images/HeroImagesm.png')] bg-no-repeat bg-cover">
+      <section className="hero py-32 px-7 rounded-t-3xl bg-[url('/images/HeroImagesm.png')] bg-no-repeat bg-cover">
         <div className="left w-1/2">
-          <Image className="h-[35px] w-16" src="/icons/CatwikiLogo2.svg" width={ 64 } height={ 35 } alt="Otra imagen del gato" />
-          <p className="text-white text-xs mb-2">Get to know more about your cat breed</p>
+          <Image className="h-[35px] w-16 lg:hidden" src="/icons/CatwikiLogo2.svg" width={ 64 } height={ 35 } alt="Otra imagen del gato" />
+          <Image className="h-auto w-56 invert contrast-[150%]' hiddden lg:block" src="/icons/CatwikiLogo.svg" width={ 64 } height={ 35 } alt="Otra imagen del gato" />
+          <p className="text-white text-xs mb-2 lg:text-2xl lg:w-[27ch] lg:mt-3 lg:mb-12">Get to know more about your cat breed</p>
           <Form data={ data } />
         </div>
       </section>
