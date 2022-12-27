@@ -1,14 +1,15 @@
-import React from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import { useMostSearched } from 'hooks/useMostSearched'
 
 export default function MostSearchList() {
 	const { data, isPlaceholderData } = useMostSearched()
+	console.log(data)
 	return (
 		<section className="cat-most-searched grid grid-cols-2 lg:grid-cols-4 gap-x-3 ">
 			{
 				data.map(cat => (
-					isPlaceholderData ? <Skeleton name={ cat.name } key={ cat.id } /> : <CatItem key={ cat.id } name={ cat.name } url={ cat.image.url } />
+					isPlaceholderData ? <Skeleton name={ cat.name } key={ cat.id } /> : <CatItem ids={cat.id} key={ cat.id } name={ cat.name } url={ cat.image.url } />
 				))
 			}
 		</section>
@@ -16,11 +17,11 @@ export default function MostSearchList() {
 }
 
 // #region components
-const CatItem = ({ name, url }) => {
+const CatItem = ({ name, url, ids }) => {
 	return (
 		<article className='flex flex-col gap-y-2'>
 			<Image className='w-auto rounded-xl h-auto object-cover aspect-square' src={ url } width={ 278 } height={ 278 } alt="" />
-			<a href="#" className='text-xs lg:text-[18px] lg:font-semibold lg:pb-2 inline-block max-w-full whitespace-nowrap overflow-hidden text-ellipsis'>{ name }</a>
+			<Link href={`/breed/${ids}`} className='text-xs lg:text-[18px] lg:font-semibold lg:pb-2 inline-block max-w-full whitespace-nowrap overflow-hidden text-ellipsis'>{ name }</Link>
 		</article>
 	)
 }
