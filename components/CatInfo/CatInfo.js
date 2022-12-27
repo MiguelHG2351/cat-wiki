@@ -52,7 +52,7 @@ export default function CatInfo_({ data }) {
             </section>
             <section className="other-photos mt-14">
                 <h2 className="text-lg font-bold lg:text-4xl mb-12">Other photos</h2>
-                <div className="cat-list grid grid-cols-2 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-8 gap-x-2">
+                <div className="cat-list grid grid-cols-2 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-8 gap-x-4 gap-y-4">
                     { data.map((cat, index) => (
                         <div className="cat-item" key={ `${index}-cat` }>
                             <Image width={ 278 } height={ 278 } alt={ breed.description } className="w-full h-auto relative z-20 object-cover aspect-square rounded-[24px]" src={ cat.url } />
