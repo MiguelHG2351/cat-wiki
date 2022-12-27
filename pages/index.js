@@ -37,16 +37,18 @@ export default function Home() {
           <Form data={ data } />
         </div>
       </section>
-      <section className="most-search bg-secondary py-2 px-8">
-        <div className="relative inline-block py-2">
+      <section className="most-search bg-secondary py-2 pb-12 lg:pb-20 rounded-b-3xl px-8">
+        <div className="relative inline-block py-2 lg:mt-4">
           <h2 className="font-medium text-xs lg:text-[18px]">Most Searched Breeds</h2>
           <div className="bg-black absolute bottom-0 left-0 w-10 lg:w-20 h-[3px] rounded-sm"></div>
         </div>
         <h3 className="font-bold text-lg lg:text-5xl my-4 lg:my-12">66+ Breeds For you to discover</h3>
         <MostSearchList />
-        <section className="why-should-you-have-a-cat mt-11">
+      </section>
+      <section className="why-should-you-have-a-cat lg:grid lg:grid-cols-2 lg:gap-x-4 lg:items-center mt-11">
+        <div className='lg:w-5/6 lg:m-auto'>
           <div className="relative inline-block py-2">
-            <h2 className="text-primary text-4xl font-bold">Why should you have a cat?</h2>
+            <h2 className="text-primary text-4xl lg:text-5xl font-bold">Why should you have a cat?</h2>
             <div className="bg-primary absolute top-0 left-0 w-14 h-[3px] rounded-sm"></div>
           </div>
           <p className="text-[18px] mt-10 mb-6 leading-6 font-medium">Having a cat around you can actually trigger the release of calming chemicals in your body which lower your stress and anxiety leves</p>
@@ -57,16 +59,16 @@ export default function Home() {
               <path className="fill-primary/[0.6]" d="m35.1 32.95-2.15-2.1 5.3-5.3H6v-3h32.3l-5.3-5.3 2.1-2.1 8.9 8.9Z" />
             </svg>
           </div>
-          <div className="image-of-cats grid grid-cols-2 gap-x-4 mt-14">
-            <div className="left">
-              <Image className="w-full object-cover mb-5" src="/images/image 2.png" width={ 411 } height={ 252 } alt="Una imagen de un gatito durmiendo" />
-              <Image className="w-full object-cover" src="/images/image 1.png" width={ 294 } height={ 440 } alt="Una imagen de un gatito con un humano" />
-            </div>
-            <div className="right">
-              <Image className="w-full object-cover" src="/images/image 3.png" width={ 359 } height={ 580 } alt="Una imagen de un gatito" />
-            </div>
+        </div>
+        <div className="image-of-cats grid grid-cols-2 gap-x-4 mt-14">
+          <div className="left">
+            <Image className="w-full object-cover mb-5" src="/images/image 2.png" width={ 411 } height={ 252 } alt="Una imagen de un gatito durmiendo" />
+            <Image className="w-full object-cover" src="/images/image 1.png" width={ 294 } height={ 440 } alt="Una imagen de un gatito con un humano" />
           </div>
-        </section>
+          <div className="right">
+            <Image className="w-full object-cover" src="/images/image 3.png" width={ 359 } height={ 580 } alt="Una imagen de un gatito" />
+          </div>
+        </div>
       </section>
     </>
   )
